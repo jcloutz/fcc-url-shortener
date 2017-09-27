@@ -25,6 +25,7 @@ import (
 )
 
 const chars = "ABCDEFGHIJKLMNOPQRXWYZabcdefghijklmnopqrstuvwxyz1234567890"
+const urlCollection = "urls"
 
 // Define the errors for the service
 var (
@@ -111,7 +112,7 @@ func (h *Handlers) NewURL(w http.ResponseWriter, r *http.Request, params map[str
 	reqDB := h.masterDB.Copy()
 	defer reqDB.Close()
 
-	collection := reqDB.DB("").C("fcc-url-shortener")
+	collection := reqDB.DB("").C(urlCollection)
 
 	slug := h.slugifier.GenerateUniqueSlug(8, collection, "slug")
 
@@ -137,7 +138,7 @@ func (h *Handlers) RedirectURL(w http.ResponseWriter, r *http.Request, params ma
 	defer reqDB.Close()
 
 	newUrl := URL{}
-	if err := reqDB.DB("").C("fcc-url-shortener").Find(bson.M{"slug": slug}).One(&newUrl); err != nil {
+	if err := reqDB.DB("").C(urlCollection).Find(bson.M{"slug": slug}).One(&newUrl); err != nil {
 		h.RespondError(w, ErrNotFound, http.StatusNotFound)
 
 		return
