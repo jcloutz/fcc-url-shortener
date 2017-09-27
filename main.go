@@ -79,7 +79,7 @@ func main() {
 	r.GET("/:slug", handlers.RedirectURL)
 
 	fmt.Printf("Listening on %s\n", host)
-	http.ListenAndServe("127.0.0.1:"+port, r)
+	http.ListenAndServe(":"+port, r)
 }
 
 // Handlers contains all route handling logic for the service
