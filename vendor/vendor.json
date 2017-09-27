@@ -4,7 +4,7 @@
   	"heroku": {
 		"goVersion": "go1.9",
 		"install": ["./..."]
-	}
+	},
 	"package": [
 		{
 			"checksumSHA1": "SLGl5JNQuLspJ+Pw19ySeTlcEM4=",
