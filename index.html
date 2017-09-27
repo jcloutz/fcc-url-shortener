@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FCC Go Timestamp Microservice</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h3 {
+            border-bottom: 1px solid #6991ad;
+        }
+
+        code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #cbeaff;
+            border: 1px solid #6991ad;
+            border-radius: 3px;
+            color: #345871;
+        }
+
+        pre {
+            margin: 0;
+        }
+
+        pre a:hover {
+            color: #404a51;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            margin: 0 0 24px 0;
+            padding: 0;
+        }
+
+        .content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        a {
+            color: #6991ad;
+            text-decoration: none;
+            transition: all .4s ease-in-out
+        }
+
+        a:hover {
+            color: #cbeaff;
+            text-decoration: none;
+        }
+
+        strong {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <h1>URL Shortener Microservice</h1>
+    <p>
+        This is a url shortener microservice written with
+        <a href="https://golang.org">Go</a> as a solution to Free Code
+        Camp's <a href="https://www.freecodecamp.org/challenges/url-shortener-microservice">URL Shortener Microservice
+        API Project</a>
+    </p>
+    <p><a href="https://github.com/jcloutz/fcc-go-timestamp-microservice">View Source</a></p>
+    <h2>Instructions</h2>
+    <ul>
+        <li>
+            <strong>Create a new shortened url</strong>
+            <code>
+                <a href="{{ .Host }}/new/http://google.com">{{ .Host }}/new/http://google.com</a>
+            </code>
+            Expected output:
+            <code>
+                <pre>
+{
+    original_url: "<a href="http://google.com">http://google.com"</a>,
+    short_url: "<a href="{{ .Host }}/px4OAI11">{{ .Host }}/px4OAI11</a>"
+}</pre>
+            </code>
+        </li>
+        <li>
+            <strong>Example Usage</strong>
+            <code>
+                <a href="{{ .Host }}/px4OAI11">{{ .Host }}/px4OAI11</a>
+            </code>
+            Will redirect to:
+            <code>
+                http://google.com
+            </code>
+        </li>
+
+    </ul>
+</div>
+
+</body>
+</html>
